@@ -39,7 +39,7 @@ export default function RootLayout({
       <head>
         <script dangerouslySetInnerHTML={{ __html: setInitialColorMode }} />
       </head>
-      <body className="dark:bg-gray-900">{children}</body>
+      <body className="dark:bg-black">{children}</body>
     </html>
   );
 }
