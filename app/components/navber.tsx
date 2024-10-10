@@ -34,7 +34,7 @@ export const Navbar = () => {
     } dark:text-white md:dark:hover:text-teal-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent`;
 
   return (
-    <nav className="border-gray-200 bg-gray-50 dark:bg-gray-900 dark:border-gray-700">
+    <nav className="border-gray-200 bg-gray-50 dark:bg-neutral-900 dark:border-gray-700">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <a href="#" className="flex items-center space-x-3 rtl:space-x-reverse">
           <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Portfolio</span>
