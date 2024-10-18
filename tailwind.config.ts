@@ -12,10 +12,6 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
-        chartColors: {
-          primary: '#fff dark:text-white',  // Tailwindテーマカラーに対応
-          secondary: '#36a2eb',
-        },
       },
     },
   },
