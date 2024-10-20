@@ -3,21 +3,33 @@ import React, { useEffect, useState } from 'react';
 import { Navbar } from '@/app/components/navber';
 import { Design } from '@/app/components/skills/design';
 import { FrontEnd } from '@/app/components/skills/front-end';
+import { BackEnd } from '@/app/components/skills/back-end';
+import { OtherSkill } from '@/app/components/skills/otherSkill';
 
 export default function Skills() {
-    const [design, setDesign] = useState("design");
-    const [frontEnd, setFrontEnd] = useState("");
+    const [selectSkill, setSelectSkill] = useState("design");
 
-    const handleChange = (e:any) =>{
-        useEffect(() => {
-            if(e.target.id === "design"){
-                setDesign("design");
-            }
-            if(e.target.id === "frontEnd"){
-                setFrontEnd("frontEnd");
-            }
-        });
+    const handleChange = (e: any) =>{
+        const { id } = e.target;
+        if(id === "design"){
+            setSelectSkill("design");
+        }
+        if(id === "frontEnd"){
+            setSelectSkill("frontEnd");
+        }
+        if(id === "backEnd"){
+            setSelectSkill("backEnd");
+        }
+        if(id === "otherSkill"){
+            setSelectSkill("otherSkill");
+        }
     
+    }
+
+    const getClass = (id: string) => {
+        const isSelect = selectSkill === id;
+        return `inline-flex items-center justify-center px-4 py-3 rounded-lg w-full 
+        ${isSelect ? "text-white bg-blue-700 dark:bg-emerald-500" : "hover:text-gray-900 bg-gray-50 hover:bg-gray-100 dark:bg-neutral-900 dark:hover:bg-gray-700 dark:hover:text-white"}`;
     }
     return (
         <>
@@ -29,7 +41,7 @@ export default function Skills() {
                         <a 
                             href="#" 
                             id="design"
-                            className="inline-flex items-center justify-center px-4 py-3 text-white bg-blue-700 rounded-lg active w-full dark:bg-emerald-500"
+                            className={getClass("design")}
                             onClick={handleChange}
                         >
                             Design
@@ -39,25 +51,37 @@ export default function Skills() {
                         <a 
                             href="#"
                             id="frontEnd" 
-                            className="inline-flex items-center justify-center px-4 py-3 rounded-lg hover:text-gray-900 bg-gray-50 hover:bg-gray-100 w-full dark:bg-neutral-900 dark:hover:bg-gray-700 dark:hover:text-white"
+                            className={getClass("frontEnd")}
                             onClick={handleChange}
                         >
                             Front-end
                         </a>
                     </li>
                     <li>
-                        <a href="#" className="inline-flex items-center justify-center px-4 py-3 rounded-lg hover:text-gray-900 bg-gray-50 hover:bg-gray-100 w-full dark:bg-neutral-900 dark:hover:bg-gray-700 dark:hover:text-white">
+                        <a 
+                            href="#"
+                            id="backEnd" 
+                            className={getClass("backEnd")}
+                            onClick={handleChange}
+                        >
                             Back-end
                         </a>
                     </li>
                     <li>
-                        <a href="#" className="inline-flex items-center justify-center px-4 py-3 rounded-lg hover:text-gray-900 bg-gray-50 hover:bg-gray-100 w-full dark:bg-neutral-900 dark:hover:bg-gray-700 dark:hover:text-white">
+                        <a 
+                            href="#"
+                            id="otherSkill" 
+                            className={getClass("otherSkill")}
+                            onClick={handleChange}
+                        >
                             Other Skill
                         </a>
                     </li>
                 </ul>
-                {design && <Design />}
-                {frontEnd && <FrontEnd />}
+                {selectSkill === "design" &&  <Design />}
+                {selectSkill === "frontEnd" && <FrontEnd />}
+                {selectSkill === "backEnd" && <BackEnd />}
+                {selectSkill === "otherSkill" && <OtherSkill />}
             </div>
         </>
     )
