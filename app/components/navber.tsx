@@ -28,10 +28,14 @@ export const Navbar = () => {
   };
 
   // クリックされたリンクにクラスを付与
-  const getLinkClass = (href: string) =>
-    `block py-2 px-3 md:p-0 rounded hover:bg-gray-100 md:hover:bg-transparent ${
-      activeLink === href ? 'md:text-blue-700' : 'text-gray-900'
-    } dark:text-white md:dark:hover:text-teal-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent`;
+  const getLinkClass = (href: string) => {
+    const baseClasses = 'block py-2 px-3 md:p-0 rounded hover:bg-gray-100 md:hover:bg-transparent';
+    const activeClasses = activeLink === href 
+      ? (darkMode ? 'text-teal-400' : 'md:text-blue-700') // ダークモードのときの色を指定
+      : (darkMode ? 'dark:text-white' : 'text-gray-900'); // ダークモードのときの通常色
+  
+    return `${baseClasses} ${activeClasses} dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent`;
+  };
 
   return (
     <nav className="border-gray-200 bg-gray-50 dark:bg-neutral-900 dark:border-gray-700">
@@ -57,9 +61,9 @@ export const Navbar = () => {
               </Link>
             </li>
             <li>
-              <a href="#" className="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent dark:text-white md:dark:hover:text-teal-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
+              <Link href="/works" className={getLinkClass('/works')} onClick={() => handleLinkClick('/works')}>
                 Works
-              </a>
+              </Link>
             </li>
             <li>
               <a href="#" className="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent dark:text-white md:dark:hover:text-teal-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">

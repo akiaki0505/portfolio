@@ -1,7 +1,5 @@
-import { useState, useEffect } from 'react';
 import Image from "next/image";
 import icon from "@/public/main_icon.jpg";
-import Link from 'next/link';
 import { Navbar } from '@/app/components/navber';
 
 export default function Home() {

@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Navbar } from '@/app/components/navber';
 import { Design } from '@/app/components/skills/design';
 import { FrontEnd } from '@/app/components/skills/front-end';
@@ -78,9 +78,9 @@ export default function Skills() {
                         </a>
                     </li>
                 </ul>
-                {selectSkill === "design" &&  <Design />}
-                {selectSkill === "frontEnd" && <FrontEnd />}
-                {selectSkill === "backEnd" && <BackEnd />}
+                {selectSkill === "design"     && <Design />}
+                {selectSkill === "frontEnd"   && <FrontEnd />}
+                {selectSkill === "backEnd"    && <BackEnd />}
                 {selectSkill === "otherSkill" && <OtherSkill />}
             </div>
         </>

@@ -31,11 +31,11 @@ const SkillOtherChart = () => {
   }, [darkMode]);
     
   const data = {
-    labels: ['JavaScript', 'TypeScript', 'React', 'Next.js', 'jQuery'],
+    labels: ['Git', 'Slack', 'Docker', 'Visual Studio Code', 'Ui path'],
     datasets: [
       {
         label: 'My skill level',
-        data: [3, 1, 2, 2, 3],
+        data: [3, 4, 2, 4, 2],
         fill: true,
         borderColor: darkMode ? "rgb(16 185 129)" : "rgb(255, 99, 132)",
         /*backgroundColor: darkMode ? "rgb(16 185 129)" : "rgba(255, 99, 132, 0.2)",
