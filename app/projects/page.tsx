@@ -14,12 +14,33 @@ export default function Projects() {
           
             <Navbar darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
             
-            <div className="pt-44 pl-5 pr-5 w-full">
+            <div className="pt-28 pl-5 pr-5 w-full">
                 <Card 
                     pDate="yyyy/mm" 
                     pClient="某老舗ホテル会社" 
                     pName="会員サイト構築"
                     pContent="システムの概要"
+                    icon={ ["html5", "css3", "javascript", "php"] }
+                />
+            </div>
+
+            <div className="pt-10 pl-5 pr-5 w-full">
+                <Card 
+                    pDate="yyyy/mm" 
+                    pClient="某大手自動車会社" 
+                    pName="サブリクション管理システム"
+                    pContent="システムの概要"
+                    icon={ ["html5", "css3", "javascript", "php"] }
+                />
+            </div>
+
+            <div className="pt-10 pl-5 pr-5 w-full">
+                <Card 
+                    pDate="yyyy/mm" 
+                    pClient="某BPO会社" 
+                    pName="管理画面"
+                    pContent="システムの概要"
+                    icon={ ["html5", "css3", "jquery", "laravel"] }
                 />
             </div>
 
