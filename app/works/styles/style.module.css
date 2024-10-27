@@ -1,0 +1,32 @@
+.light_outlined_text {
+    font-size: 65px;
+    font-weight: bold;
+    color: white;
+    text-shadow: 
+        1px 1px 0px black, /* Right and down */
+        -1px -1px 0px black, /* Left and up */
+        -1px 1px 0px black, /* Left and down */
+        1px -1px 0px black; /* Right and up */
+}
+
+.dark_outlined_text {
+    font-size: 65px;
+    font-weight: bold;
+    color: black;
+    text-shadow: 
+        1px 1px 0px white, /* Right and down */
+        -1px -1px 0px white, /* Left and up */
+        -1px 1px 0px white, /* Left and down */
+        1px -1px 0px white; /* Right and up */
+}
+
+.light_app_name {
+    font-size: 48px;
+    font-weight: bold;
+}
+
+.dark_app_name {
+    font-size: 48px;
+    font-weight: bold;
+    color: white;
+}

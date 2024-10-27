@@ -5,9 +5,11 @@ import { Design } from '@/app/components/skills/design';
 import { FrontEnd } from '@/app/components/skills/front-end';
 import { BackEnd } from '@/app/components/skills/back-end';
 import { OtherSkill } from '@/app/components/skills/otherSkill';
+import { useDarkMode } from '@/hooks/useDarkMode';
 
 export default function Skills() {
     const [selectSkill, setSelectSkill] = useState("design");
+    const [darkMode, toggleDarkMode] = useDarkMode();
 
     const handleChange = (e: any) =>{
         const { id } = e.target;
@@ -33,7 +35,7 @@ export default function Skills() {
     }
     return (
         <>
-            <Navbar />
+            <Navbar darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
 
             <div className="pt-44 pl-5 md:flex">
                 <ul className="flex-column space-y space-y-24 pr-10 w-64 text-sm font-medium text-gray-500 dark:text-gray-400 md:me-4 mb-4 md:mb-0">
