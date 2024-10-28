@@ -1,57 +1,90 @@
-import React, { PureComponent }  from 'react';
+"use client";
+import React, { useState } from 'react';
 import { Navbar } from '@/app/components/navber';
+import { Design } from '@/app/components/skills/design';
+import { FrontEnd } from '@/app/components/skills/front-end';
+import { BackEnd } from '@/app/components/skills/back-end';
+import { OtherSkill } from '@/app/components/skills/otherSkill';
+import { useDarkMode } from '@/hooks/useDarkMode';
 
 export default function Skills() {
-  return (
-    <>
-        <Navbar />
+    const [selectSkill, setSelectSkill] = useState("design");
+    const [darkMode, toggleDarkMode] = useDarkMode();
 
-        <div className="pt-44 pl-5 md:flex">
-            <ul className="flex-column space-y space-y-4 pr-10 w-64 text-sm font-medium text-gray-500 dark:text-gray-400 md:me-4 mb-4 md:mb-0">
-                <li>
-                    <a href="#" className="inline-flex items-center justify-center px-4 py-3 text-white bg-blue-700 rounded-lg active w-full dark:bg-emerald-500">
-                        Design
-                    </a>
-                </li>
-                <li>
-                    <a href="#" className="inline-flex items-center px-4 py-3 rounded-lg hover:text-gray-900 bg-gray-50 hover:bg-gray-100 w-full dark:bg-neutral-900 dark:hover:bg-gray-700 dark:hover:text-white">
-                        Front-end
-                    </a>
-                </li>
-                <li>
-                    <a href="#" className="inline-flex items-center px-4 py-3 rounded-lg hover:text-gray-900 bg-gray-50 hover:bg-gray-100 w-full dark:bg-neutral-900 dark:hover:bg-gray-700 dark:hover:text-white">
-                        Back-end
-                    </a>
-                </li>
-                <li>
-                    <a href="#" className="inline-flex items-center px-4 py-3 rounded-lg hover:text-gray-900 bg-gray-50 hover:bg-gray-100 w-full dark:bg-neutral-900 dark:hover:bg-gray-700 dark:hover:text-white">
-                        Other Skill
-                    </a>
-                </li>
-            </ul>
-            <div className="p-6 bg-gray-50 text-medium text-gray-500 dark:text-gray-400 dark:bg-neutral-900 rounded-lg w-8/12">
-                <h3 className="text-lg text-center font-bold text-gray-900 dark:text-white mb-2">Design</h3>
-                <table className="w-full">
-                    <tr>
-                        <td className="w-40">コーポレートサイト</td>
-                        <td className="w-32 text-center">◯</td>
-                        <td className="w-40">フォーム</td>
-                        <td className="w-32 text-center">◯</td>
-                    </tr>
-                    <tr>
-                        <td className="w-40">プロモーションサイト</td>
-                        <td className="w-32 text-center">×</td>
-                        <td className="w-40">toB　システムデザイン</td>
-                        <td className="w-32 text-center">◯</td>
-                    </tr>
-                    <tr>
-                        <td className="w-40">toC　システムデザイン</td>
-                        <td className="w-32 text-center">△</td>
-                    </tr>
-                </table>
-            </div>
-        </div>
-    </>
+    const handleChange = (e: any) =>{
+        const { id } = e.target;
+        if(id === "design"){
+            setSelectSkill("design");
+        }
+        if(id === "frontEnd"){
+            setSelectSkill("frontEnd");
+        }
+        if(id === "backEnd"){
+            setSelectSkill("backEnd");
+        }
+        if(id === "otherSkill"){
+            setSelectSkill("otherSkill");
+        }
     
-  )
+    }
+
+    const getClass = (id: string) => {
+        const isSelect = selectSkill === id;
+        return `inline-flex items-center justify-center px-4 py-3 rounded-lg w-full 
+        ${isSelect ? "text-white bg-blue-700 dark:bg-emerald-500" : "hover:text-gray-900 bg-gray-50 hover:bg-gray-100 dark:bg-neutral-900 dark:hover:bg-gray-700 dark:hover:text-white"}`;
+    }
+    return (
+        <>
+            <Navbar darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
+
+            <div className="pt-44 pl-5 md:flex">
+                <ul className="flex-column space-y space-y-24 pr-10 w-64 text-sm font-medium text-gray-500 dark:text-gray-400 md:me-4 mb-4 md:mb-0">
+                    <li>
+                        <a 
+                            href="#" 
+                            id="design"
+                            className={getClass("design")}
+                            onClick={handleChange}
+                        >
+                            Design
+                        </a>
+                    </li>
+                    <li>
+                        <a 
+                            href="#"
+                            id="frontEnd" 
+                            className={getClass("frontEnd")}
+                            onClick={handleChange}
+                        >
+                            Front-end
+                        </a>
+                    </li>
+                    <li>
+                        <a 
+                            href="#"
+                            id="backEnd" 
+                            className={getClass("backEnd")}
+                            onClick={handleChange}
+                        >
+                            Back-end
+                        </a>
+                    </li>
+                    <li>
+                        <a 
+                            href="#"
+                            id="otherSkill" 
+                            className={getClass("otherSkill")}
+                            onClick={handleChange}
+                        >
+                            Other Skill
+                        </a>
+                    </li>
+                </ul>
+                {selectSkill === "design"     && <Design />}
+                {selectSkill === "frontEnd"   && <FrontEnd />}
+                {selectSkill === "backEnd"    && <BackEnd />}
+                {selectSkill === "otherSkill" && <OtherSkill />}
+            </div>
+        </>
+    )
 }
