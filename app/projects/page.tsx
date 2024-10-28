@@ -6,6 +6,7 @@ import { Card } from '@/app/components/projects/card';
 
 export default function Projects() {
     const [darkMode, toggleDarkMode] = useDarkMode();
+
     return (
         <>
             <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
@@ -43,6 +44,8 @@ export default function Projects() {
                     icon={ ["html5", "css3", "jquery", "laravel"] }
                 />
             </div>
+
+            <div className="pt-10"></div>
 
         </>
     )

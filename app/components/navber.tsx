@@ -44,9 +44,9 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, toggleDarkMode }) => {
                             </Link>
                         </li>
                         <li>
-                            <Link href="/skills" className={getLinkClass('/skills')} onClick={() => handleLinkClick('/skills')}>
+                            <a href="/skills" className={getLinkClass('/skills')} onClick={() => handleLinkClick('/skills')}>
                                 Skills
-                            </Link>
+                            </a>
                         </li>
                         <li>
                             <Link href="/projects" className={getLinkClass('/projects')} onClick={() => handleLinkClick('/projects')}>
@@ -54,9 +54,9 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, toggleDarkMode }) => {
                             </Link>
                         </li>
                         <li>
-                            <Link href="/works" className={getLinkClass('/works')} onClick={() => handleLinkClick('/works')}>
+                            <a href="/works" className={getLinkClass('/works')} onClick={() => handleLinkClick('/works')}>
                                 Works
-                            </Link>
+                            </a>
                         </li>
                         <li>
                             <a href="#" className="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent dark:text-white md:dark:hover:text-teal-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">

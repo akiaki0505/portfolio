@@ -24,7 +24,7 @@ export const Card: React.FC<cardProps> = ({ pDate, pClient, pName, pContent, ico
 
                 <div className="flex justify-left space-x-3">
                     {icon.map((item, index) => (
-                        <CardIcon key={index} iconName={item}/>
+                        <CardIcon key={index} iconName={item} />
                     ))}
                 </div>
 

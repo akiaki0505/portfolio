@@ -3,14 +3,16 @@ import { Navbar } from '@/app/components/navber';
 import React from 'react';
 import style from '@/app/works/styles/style.module.css';
 import Link from 'next/link';
-import Image from 'next/image';
-import chatApp from "@/public/chat-app-login.png";
 import { useDarkMode } from '@/hooks/useDarkMode';
+import { Carousel } from '@/app/components/works/carousel';
 
 export default function page() {
     const [darkMode, toggleDarkMode] = useDarkMode();
     return (
         <>
+            <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css" rel="stylesheet" />
+            <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
+
             <Navbar darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
 
             <div className="flex justify-left">
@@ -28,7 +30,7 @@ export default function page() {
                     <div className="border-b-2 border-slate-300/30 pt-5"></div>
 
                     <div className="pt-5 space-x-5">
-                        <Link href="#">
+                        <Link href="http://13.112.161.14" target="_blank">
                             <div className="relative inline-flex items-center justify-center w-14 h-14 overflow-hidden bg-gray-100 rounded-full dark:bg-gray-600">
                                 <span className="font-medium text-gray-600 dark:text-gray-300">
                                     <svg className="w-10 h-10 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
@@ -38,7 +40,7 @@ export default function page() {
                             </div>
                         </Link>
 
-                        <Link href="https://github.com/akiaki0505/nextjs-chat-client">
+                        <Link href="https://github.com/akiaki0505/nextjs-chat-client" target="_blank">
                             <div className="relative inline-flex items-center justify-center w-14 h-14 overflow-hidden bg-gray-100 rounded-full dark:bg-gray-600">
                                 <span className="font-medium text-gray-600 dark:text-gray-300">
                                     <svg className="w-10 h-10 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
@@ -50,8 +52,8 @@ export default function page() {
                     </div>
                 </div>
                 
-                <div className="pt-56 pl-5 w-2/4">
-                    <Image width={560} height={380} src={chatApp} alt="icon" />
+                <div className="pt-48 pl-5 pr-5 w-2/4">
+                    <Carousel />
                 </div>
             </div>
         </>
