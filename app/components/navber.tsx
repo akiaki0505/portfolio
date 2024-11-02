@@ -49,9 +49,9 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, toggleDarkMode }) => {
                             </a>
                         </li>
                         <li>
-                            <Link href="/projects" className={getLinkClass('/projects')} onClick={() => handleLinkClick('/projects')}>
+                            <a href="/projects" className={getLinkClass('/projects')} onClick={() => handleLinkClick('/projects')}>
                                 Projects
-                            </Link>
+                            </a>
                         </li>
                         <li>
                             <a href="/works" className={getLinkClass('/works')} onClick={() => handleLinkClick('/works')}>
